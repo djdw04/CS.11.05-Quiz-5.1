@@ -1,5 +1,4 @@
 public class Main {
-
     /**
      * Given two arrays of integers, write a method called combine that combines the two arrays into one larger array.
      * The method combine will return a new one dimensional array of integers.
@@ -8,9 +7,16 @@ public class Main {
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
-
-        return null;
-
+        int firstLength = array1.length;
+        int secondLength = array2.length;
+        int[] finalArray = new int[firstLength + secondLength];
+        for (int i = 0; i < firstLength; i++) {
+            finalArray[i] = array1[i];
+        }
+        for (int i = 0; i < secondLength; i++) {
+            finalArray[firstLength + i] = array2[i];
+        }
+        return finalArray;
     }
 
     /**
@@ -21,11 +27,14 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
-
+        int length = array1.length;
+        int[] finalArray = new int[length * 2];
+        for (int i = 0; i < length; i++) {
+           finalArray[i * 2] = array1[i];
+            finalArray[i * 2 + 1] = array2[i];
+        }
+        return finalArray;
     }
-
     /**
      * Given two arrays of integers of equal length, write a method called product that multiplies each element in the first array by the element at the corresponding index in the second array.
      * The method product will return a new one dimensional array of integers.
@@ -34,11 +43,13 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
-
-        return null;
-
+        int length = array1.length;
+        int[] finalArray = new int[length];
+        for (int i = 0; i < length; i++) {
+            finalArray[i] = array1[i] * array2[i];
+        }
+        return finalArray;
     }
-
     /**
      * Given an array of Strings, write a method called capitalCount that calculates the number of capital letters in each String and stores them into an array.
      * The method capitalCount will return a new one dimensional array of integers.
@@ -57,14 +68,29 @@ public class Main {
      */
     public static int[] capitalCount(String[] words) {
 
-        return null;
-
+        int length = words.length;
+        int[] finalArray = new int[length];
+        for (int i = 0; i < length; i++) {
+            String asString = words[i];
+            int count = 0;
+            for (int j = 0; j < asString.length(); j++) {
+                if (Character.isUpperCase(asString.charAt(j))) {
+                    count++;
+                }
+            }
+            finalArray[i] = count;
+        }
+        return finalArray;
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
-
+        int count = 0;
+        for (int i = 0; i < word.length(); i++) {
+            char a = word.charAt(i);
+            if (Character.isAlphabetic(a) && Character.isUpperCase(a)) {
+                count++;
+            }
+        }
+        return count;
     }
-
 }
